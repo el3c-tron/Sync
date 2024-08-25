@@ -1,6 +1,9 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import userRouter from './routes/user.route.js'
+import chatRouter from './routes/chat.route.js'
+import messageRouter from './routes/message.route.js'
 
 const app = express();
 
@@ -20,7 +23,9 @@ app.use(express.static("public"));
 app.use(cookieParser());
 
 // IMPORTING ROUTER
-
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/chat", chatRouter);
+app.use("/api/v1/message", messageRouter);
 // Route DECLARATION
 
 export {app};
